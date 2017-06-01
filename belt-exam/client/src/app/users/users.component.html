@@ -1,0 +1,23 @@
+<div *ngIf="!_usersService.loggedin">
+  <app-login></app-login>
+</div>
+
+<div *ngIf ="_usersService.loggedin &&  !_usersService.playpage">
+  <app-home></app-home>
+</div>
+
+<div *ngIf ="_usersService.loggedin && _usersService.mainpage && !_usersService.playpage && !_usersService.addquestionpage && _usersService.success">
+  <app-success></app-success>
+</div>
+
+<div *ngIf ="_usersService.loggedin &&  !_usersService.playpage && !_usersService.addquestionpage">
+  <app-mainpage></app-mainpage>
+</div>
+
+<div *ngIf ="_usersService.loggedin && !_usersService.mainpage && !_usersService.addquestionpage && _usersService.playpage ">
+  <app-playpage></app-playpage>
+</div>
+
+<div *ngIf ="_usersService.loggedin && !_usersService.mainpage && !_usersService.playpage && _usersService.addquestionpage">
+  <app-addquestionpage></app-addquestionpage>
+</div>

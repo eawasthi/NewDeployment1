@@ -1,0 +1,36 @@
+<h1>Play Game      Welcome  </h1>
+
+<div>
+    <form (submit)="answers()" #formData ="ngForm" >
+        <h4>
+            Question1:
+            {{_usersService.QUESTION[0].Question}}<br>
+            <input type="radio" [(ngModel)]="newTrivia.answer1" required name ="answer1"  #answer1= "ngModel" value = "{{_usersService.QUESTION[0].AllAnswers[0]}}" required>{{_usersService.QUESTION[0].AllAnswers[0]}}<br> 
+            <input type="radio" [(ngModel)]="newTrivia.answer1" name ="answer1" #answer1= "ngModel" value = "{{_usersService.QUESTION[0].AllAnswers[1]}}">{{_usersService.QUESTION[0].AllAnswers[1]}}<br>
+            <input type="radio" [(ngModel)]="newTrivia.answer1" name = "answer1" #answer1= "ngModel" value = "{{_usersService.QUESTION[0].AllAnswers[2]}}">{{_usersService.QUESTION[0].AllAnswers[2]}}<br><br>
+        </h4>
+
+        <h4>
+            Question2:
+            {{_usersService.QUESTION[1].Question}}<br>
+            <input type="radio" [(ngModel)]="newTrivia.answer2" required name ="answer2"  #answer2= "ngModel" value = "{{_usersService.QUESTION[1].AllAnswers[0]}}">{{_usersService.QUESTION[1].AllAnswers[0]}}<br>
+            <input type="radio" [(ngModel)]="newTrivia.answer2" name ="answer2" #answer2= "ngModel" value = "{{_usersService.QUESTION[1].AllAnswers[1]}}">{{_usersService.QUESTION[1].AllAnswers[1]}}<br>      
+            <input type="radio" [(ngModel)]="newTrivia.answer2" name = "answer2" #answer2= "ngModel" value = "{{_usersService.QUESTION[1].AllAnswers[2]}}">{{_usersService.QUESTION[1].AllAnswers[2]}}<br><br>
+        </h4>
+
+
+        <h4>
+            Question3:
+            {{_usersService.QUESTION[2].Question}}<br>
+            <input type="radio" [(ngModel)]="newTrivia.answer3" required name ="answer3"  #answer3= "ngModel" value = "{{_usersService.QUESTION[2].AllAnswers[0]}}">{{_usersService.QUESTION[2].AllAnswers[0]}}<br>
+            <input type="radio" [(ngModel)]="newTrivia.answer3" name ="answer3" #answer3= "ngModel" value = "{{_usersService.QUESTION[2].AllAnswers[1]}}">{{_usersService.QUESTION[2].AllAnswers[1]}}<br>     
+            <input type="radio" [(ngModel)]="newTrivia.answer3" name = "answer3" #answer3= "ngModel" value = "{{_usersService.QUESTION[2].AllAnswers[2]}}">{{_usersService.QUESTION[2].AllAnswers[2]}}<br><br>
+        </h4>
+
+
+       <input type="submit" value = "Enter!" [disabled] ="!formData.form.valid">
+    </form>
+    <p *ngIf="answer1.errors?.required"> Question1 field is required!</p>
+    <p *ngIf="answer2.errors?.required"> Question2 field is required!</p>
+    <p *ngIf="answer3.errors?.required"> Question3 field is required!</p>
+ </div>

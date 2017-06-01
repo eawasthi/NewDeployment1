@@ -1,0 +1,14 @@
+<h3>Enter a username to continue:</h3>
+
+<form (submit)="find()" #formData="ngForm">
+
+  <label>Name</label>
+
+  <input type="text" name="Name" required minlength="4" [(ngModel)]="newUser.Name" #Name= "ngModel">
+  
+  <p *ngIf="Name.errors?.required"> Name field is required!</p>
+
+  <p *ngIf="Name.errors?.minlength"> Name should be 4 characters long</p>
+
+  <input type="submit" value = "Enter!" [disabled] ="!formData.form.valid">
+</form>

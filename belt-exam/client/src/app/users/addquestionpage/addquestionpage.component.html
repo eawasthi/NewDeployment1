@@ -1,0 +1,18 @@
+<hr>
+
+<form (submit) = "newQuestion()" #formData="ngForm" >
+    Question: <textarea type="text" [(ngModel)]="questioncreate.Question" required minlength="15" name ="Question"  #Question= "ngModel" required rows="3" cols="40"></textarea><br>
+    Right Answer:  <input type="text" [(ngModel)]="questioncreate.AllAnswers1" required name ="AllAnswers1"  #AllAnswers1= "ngModel" required><br>
+    Fake Answer: <input type="text" [(ngModel)]="questioncreate.AllAnswers2" required name ="AllAnswers2"  #AllAnswers2= "ngModel" required><br>
+    Fake Answer: <input type="text" [(ngModel)]="questioncreate.AllAnswers3" required name ="AllAnswers3"  #AllAnswers3= "ngModel" required><br>
+    <input type="submit" value = "Add Question" [disabled] ="!formData.form.valid">
+    <p *ngIf="Question.errors?.required"> Question field is required!</p>
+    <p *ngIf="Question.errors?.minlength"> Question should be 15 characters long</p>
+    <p *ngIf="AllAnswers1.errors?.required"> Right Answer field is required!</p>
+    <p *ngIf="AllAnswers2.errors?.required"> Fake Answer field is required!</p>
+    <p *ngIf="AllAnswers3.errors?.required"> Fake Answer field is required!</p>
+</form>
+
+<form (submit) = "canceling()">
+     <input type="submit" value="Cancel">
+</form>

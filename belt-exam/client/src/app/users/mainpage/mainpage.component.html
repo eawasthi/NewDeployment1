@@ -1,0 +1,20 @@
+<h1> <button (click)="this._usersService.play()">Play</button> </h1>
+<h1> <button (click)="this._usersService.addQuestion()">Add a Question</button> </h1>
+
+ <p>Filter by name: <input type="text" name="filter" [(ngModel)]="search_string"></p>
+  <table>
+      <thead>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Percentage</th>
+      </thead>
+
+          <tbody>
+                <tr *ngFor = "let result of _usersService.SCORES | name_filter:search_string">
+                  <td>{{result._user.Name }}</td>
+                  <td>{{result.Score}}/3</td>
+                  <td>{{result.Percent}}%</td>
+                 
+                </tr>
+          </tbody>
+    </table>
